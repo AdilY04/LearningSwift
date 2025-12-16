@@ -1,40 +1,46 @@
 import Foundation
 
-//arrays - resume from start of the video
-//array stored in the struct
-
-var names: [String] = ["Batman", "Joker", "Alfred"]
-//or can do var names: Array<String> = ["Batman", "Joker", "Alfred"]
-let count = names.count
-let first = names.first //this is an optional so we would use if let
-let last = names.last //this is an optional so we would use if let
-
-names.append("Harvey Dent")
-
-let name5 = names[2] //subscript of the arr
-
-//if we're not sure that an index exists
-if names.indices.contains(6) {
-    let master = names[6]
-} else {
-    print("No such index, Master Wayne.")
-}
-
-//inserting at a certain index
-names.insert("Bruce Wayne", at: 2)
-
-//removing an item
-names.remove(at: 1)
-
-//if we wanna remove all elements in the array
-names.removeAll()
-
-print(names)
-
-
-//sets
-//have unique values ONLY.
-//sets are unordered. they will not order your array for you.
 var finalFruits: [String] = ["Apple", "Orange", "Banana", "Apple"]
 print(finalFruits)
-var fruitsSet: Set<String>
+
+let myFruit = finalFruits[1] //this means that it is not an optional so we cant afford to miss it
+
+var fruitsSet: [String] = ["Apple", "Orange", "Banana", "Apple"]
+print(fruitsSet)
+
+var myFirstDictionary: [String: Bool] = ["Apple": true, "Orange": false]
+
+let item = myFirstDictionary["Orange"]
+//even if there is no orange it will not crash our app.
+//gonna return nil if its not even there
+
+//a dictionary cannot have two of the same key but two of the same value
+
+//removing values
+myFirstDictionary.removeValue(forKey: "Apple")
+
+
+struct PostModel {
+    let id: String
+    let title: String
+    let likecount: Int
+}
+
+var postArray: [PostModel] = [
+    PostModel(id: "abc123", title: "Post 1", likecount: 5),
+    PostModel(id: "def678", title: "Post 2", likecount: 7),
+    PostModel(id: "xyz987", title: "Post 3", likecount: 217),
+]
+
+if postArray.indices.contains(1) {
+    let item = postArray[1]
+    print(item)
+}
+
+var postDict: [String:PostModel] = [
+    "abc123" : PostModel(id: "abc123", title: "Post 1", likecount: 5),
+    "def678" : PostModel(id: "def678", title: "Post 2", likecount: 7),
+    "xyz987" : PostModel(id: "xyz987", title: "Post 3", likecount: 217),
+]
+
+//dicts not ordered and more faster than arrays
